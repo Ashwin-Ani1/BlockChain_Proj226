@@ -22,14 +22,14 @@ export default function MyComponent(props){
 
      useEffect(() => {
 
-     fetch("http://localhost/api/read.php?format=geojson&starttime="+start+"&endtime="+ end +"&minmagnitude=5")
+     fetch("http://localhost/api/read.php?format=geojson&starttime="+start+"&endtime="+ end +"&minmagnitude="+props.minMagnitude)
             .then(response => response.json())
             .then(data => setData(data));
 
-    },  [props.starttime, props.endtime]);
+    },  [props.starttime, props.endtime, props.minMagnitude]);
     console.log(data);
     // render the component using the data from the API
-    let print='Earthquakes from '+start+' to '+end+' with a minimum magnitude of 5';
+    let print='Earthquakes from '+start+' to '+end+' with a minimum magnitude of '+props.minMagnitude;
     if(data==null){
         return <div>{print} {data}</div>;
     }
