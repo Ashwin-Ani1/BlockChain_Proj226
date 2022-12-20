@@ -9,9 +9,6 @@ function App() {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
 
-
-
-
     return (
         <div className="App">
 
@@ -20,9 +17,11 @@ function App() {
             <DatePicker dateFormat="yyyy-MM-dd" selected={startDate} onChange={(date: Date) => setStartDate(date)} />
 
             <p>Please choose an end date:</p>
-            <DatePicker dateFormat="yyyy-MM-dd" selected={endDate} onChange={(date: Date) => setEndDate(date)} />
+            <DatePicker dateFormat="yyyy-MM-dd" selected={endDate} onChange={(date) => setEndDate(date)} />
+            <p></p>
+            <MyComponent starttime={startDate} endtime={endDate} />
 
-            <MyComponent starttime={startDate} endtime={endDate}/>
+            <h2 style={{textDecoration: 'underline'}}>Preparing an Earthquake Kit:</h2>
 
 
 
