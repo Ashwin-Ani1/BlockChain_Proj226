@@ -9,8 +9,8 @@ $ch = curl_init();
 
 $start_time=isset($_GET['starttime']) ? $_GET['starttime'] : die();
 $end_time=isset($_GET['endtime']) ? $_GET['endtime'] : die();
-
-curl_setopt($ch, CURLOPT_URL, 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime='.$start_time.'&endtime='.$end_time.'');
+$min_magnitude=isset($_GET['minmagnitude']) ? $_GET['minmagnitude'] : die();
+curl_setopt($ch, CURLOPT_URL, 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime='.$start_time.'&endtime='.$end_time.'&minmagnitude='.$min_magnitude.'');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 //curl_setopt($ch, CURLOPT_POST, 1);
 //curl_setopt($ch, CURLOPT_POSTFIELDS, POST DATA);
