@@ -11,24 +11,26 @@ export default function MyComponent(props){
 
 
     let end = props.endtime;
-    yyyy = endDate.getFullYear();
-    mm = String(endDate.getMonth() + 1).padStart(2, '0'); //January is 0!
-    dd = String(endDate.getDate()).padStart(2, '0');
+    yyyy = end.getFullYear();
+    mm = String(end.getMonth() + 1).padStart(2, '0'); //January is 0!
+    dd = String(end.getDate()).padStart(2, '0');
     end=yyyy + '-' + mm + '-' + dd;
     console.log(end);
 
-     useEffect((props) => {
+     useEffect(() => {
 
-     fetch("http://localhost/api/read.php?format=geojson&starttime="+props.starttime+"&endtime="+ props.endtime)
+     fetch("http://localhost/api/read.php?format=geojson&starttime="+start+"&endtime="+ end)
             .then(response => response.json())
             .then(data => setData(data));
 
     }, []);
-
+    console.log(data);
     // render the component using the data from the API
     return <div>{JSON.stringify(data)}</div>;
 
 }
+
+
 
 
 
