@@ -12,9 +12,10 @@ services:
       MYSQL_DB_NAME: test
       MYSQL_USER: test
       MYSQL_PASSWORD: test
-      SITE_URL: http://localhost
+      SITE_URL: http://localhost/
 
   db:
+    platform: linux/x86_64
     image: mysql:5.7
     container_name: mysqldb
     environment:
@@ -49,6 +50,6 @@ services:
     ports:
       - 3001:3000
     environment:
-      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
 volumes:
   dbdata:
