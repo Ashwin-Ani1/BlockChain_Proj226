@@ -1,1 +1,1 @@
-# BlockChain_Proj226
+# Earthquake USGS_Proj226
